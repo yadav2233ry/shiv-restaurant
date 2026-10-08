@@ -1,0 +1,534 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shiv Restaurant — Luxury Dining Experience</title>
+    <meta name="description" content="Premium Awwwards-style 3D culinary showcase for Shiv Restaurant in Jaunpur, Uttar Pradesh. Authentic Indian flavours, interactive 3D WebGL experience, and signature menu." />
+    <meta property="og:title" content="Shiv Restaurant — Luxury Dining Experience" />
+    <meta property="og:description" content="Premium Awwwards-style 3D culinary showcase for Shiv Restaurant in Jaunpur, Uttar Pradesh. Authentic Indian flavours, interactive 3D WebGL experience, and signature menu." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#070709" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+    <!-- Three.js CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <!-- Custom Luxury CSS -->
+    <link rel="stylesheet" href="./src/css/style.css" />
+  </head>
+  <body>
+    <!-- Three.js Interactive 3D Canvas Background & Stage -->
+    <div id="webgl-canvas-container" class="webgl-container" aria-label="Interactive 3D culinary showcase"></div>
+
+    <!-- Atmospheric Glow & Vignette -->
+    <div class="ambient-glow" aria-hidden="true"></div>
+
+    <!-- Main Content Layer -->
+    <div class="content-wrapper">
+
+      <!-- Top Navigation Bar (Strict 3-Zone Contract) -->
+      <header class="site-header" role="banner">
+        <div class="header-container">
+          <!-- Zone 1: Single Brand Wordmark Element -->
+          <a href="#hero" class="brand-wordmark">SHIV RESTAURANT</a>
+
+          <!-- Zone 2: Navigation Links -->
+          <nav class="nav-links" role="navigation" aria-label="Main menu">
+            <a href="#menu" class="nav-link">Signature Menu</a>
+            <a href="#about" class="nav-link">Experience</a>
+            <a href="#gallery" class="nav-link">Food Gallery</a>
+            <a href="#contact" class="nav-link">Location & Contact</a>
+          </nav>
+
+          <!-- Zone 3: Primary Actions -->
+          <div class="header-actions">
+            <a href="tel:8832556011" class="btn btn-primary btn-sm">Call 8832556011</a>
+            <a href="https://maps.google.com/?q=Shiv+Restaurant,+Jaunpur,+Uttar+Pradesh+222136,+India" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">Directions</a>
+            <button id="mobile-toggle-btn" class="mobile-toggle" aria-label="Open mobile navigation menu">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <!-- Mobile Navigation Drawer -->
+      <div id="drawer-backdrop" class="drawer-backdrop" aria-hidden="true"></div>
+      <aside id="mobile-nav-drawer" class="mobile-nav-drawer" aria-label="Mobile Navigation">
+        <button id="drawer-close-btn" class="drawer-close" aria-label="Close navigation">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+        <div class="mobile-menu-links">
+          <a href="#hero" class="mobile-nav-item">Home</a>
+          <a href="#menu" class="mobile-nav-item">Signature Menu</a>
+          <a href="#about" class="mobile-nav-item">About Experience</a>
+          <a href="#gallery" class="mobile-nav-item">Food Showcase</a>
+          <a href="#contact" class="mobile-nav-item">Contact & Maps</a>
+        </div>
+        <div class="mobile-drawer-contact">
+          <p><strong>Shiv Restaurant</strong></p>
+          <p>Jaunpur, Uttar Pradesh 222136, India</p>
+          <p>Phone: <a href="tel:8832556011" style="color: var(--gold-champagne);">8832556011</a></p>
+          <p>Email: <a href="mailto:ry9218977@gmail.com" style="color: var(--gold-champagne);">ry9218977@gmail.com</a></p>
+        </div>
+      </aside>
+
+      <!-- ================================================================== -->
+      <!-- SECTION 1: Full-Screen 3D Hero -->
+      <!-- ================================================================== -->
+      <section id="hero" class="hero-section" aria-label="Introduction">
+        <div class="container">
+          <div class="hero-content">
+            <div class="kicker">AUTHENTIC INDIAN CUISINE · JAUNPUR, UTTAR PRADESH</div>
+            <h1 class="hero-title">SHIV RESTAURANT</h1>
+            <p class="hero-tagline">“Authentic Flavours. Memorable Moments.”</p>
+            <p class="hero-description">
+              Step into an immersive culinary journey celebrating the timeless gastronomy of North India. 
+              Slow-cooked gravies, sizzling ghee tadkas, fresh paneer, and aromatic whole spices 
+              crafted with heartfelt hospitality in the historic heart of Jaunpur.
+            </p>
+
+            <div class="hero-actions">
+              <a href="#menu" class="btn btn-gold">Explore Signature Menu</a>
+              <a href="tel:8832556011" class="btn btn-glass">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+                Call: 8832556011
+              </a>
+              <a href="#contact" class="btn btn-outline">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                Location & Directions
+              </a>
+            </div>
+
+            <div class="hero-interaction-hint" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 8v8"></path>
+                <path d="m8 12 4 4 4-4"></path>
+              </svg>
+              <span>Drag to orbit 3D centerpiece · Scroll to explore</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================================== -->
+      <!-- SECTION 2: Interactive 3D Signature Menu -->
+      <!-- ================================================================== -->
+      <section id="menu" class="menu-section" aria-label="Signature Menu">
+        <div class="container">
+          <div class="section-header">
+            <div class="kicker">AUTHENTIC SELECTION</div>
+            <h2 class="section-title">The <span class="gold">Signature Menu</span></h2>
+            <p class="section-lead">
+              Every dish is prepared upon order using hand-selected regional spices, pure desi ghee, and 
+              artisanal cooking techniques honoring Uttar Pradesh traditions.
+            </p>
+          </div>
+
+          <!-- Dual Column 3D Showcase Pod -->
+          <div class="menu-showcase-container">
+            <!-- Left: Dynamic Dish Spotlight -->
+            <div id="menu-spotlight-card" class="menu-spotlight-card" aria-live="polite">
+              <!-- Rendered via JavaScript -->
+            </div>
+
+            <!-- Right: Interactive Dish Selector List -->
+            <div class="dish-selector-wrap">
+              <div id="dish-selector-list" class="dish-selector-list" role="tablist">
+                <!-- Rendered via JavaScript -->
+              </div>
+            </div>
+          </div>
+
+          <!-- 3D Perspective Cards Grid -->
+          <div class="section-header" style="margin-top: 80px; margin-bottom: 32px;">
+            <div class="kicker">COMPLETE MENU ROSTER</div>
+            <h3 class="section-title" style="font-size: 1.85rem;">All Signature Creations</h3>
+          </div>
+          <div id="menu-cards-grid" class="menu-cards-grid">
+            <!-- Rendered via JavaScript -->
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================================== -->
+      <!-- SECTION 3: About / Restaurant Experience -->
+      <!-- ================================================================== -->
+      <section id="about" class="about-section" aria-label="About Shiv Restaurant">
+        <div class="container">
+          <div class="about-grid">
+            <div class="about-text-col">
+              <div class="kicker">HERITAGE & CRAFTSMANSHIP</div>
+              <h2 class="section-title">Rooted in <span class="gold">Jaunpur’s Tradition</span></h2>
+              <p>
+                Nestled in Jaunpur, Uttar Pradesh, Shiv Restaurant was born from a timeless culinary philosophy: 
+                food is not merely sustenance, but a sacred celebration of warmth, fellowship, and ancestral recipes.
+              </p>
+              <p>
+                From hand-pounded cumin and roasted whole red chilies to simmering golden dal finished with smoking 
+                desi ghee, every item on our menu is prepared with unwavering devotion to authenticity. We take 
+                pride in serving fresh, unhurried meals that evoke the comfort of traditional North Indian family feasts.
+              </p>
+
+              <!-- Culinary Pillars -->
+              <div class="pillars-grid">
+                <div class="pillar-item">
+                  <div class="pillar-number">01</div>
+                  <div class="pillar-title">Hand-Pounded Spices</div>
+                  <div class="pillar-desc">Whole coriander, cardamom, and dry red chilies roasted and ground daily in small batches.</div>
+                </div>
+                <div class="pillar-item">
+                  <div class="pillar-number">02</div>
+                  <div class="pillar-title">Artisanal Dairy</div>
+                  <div class="pillar-desc">Fresh, melt-in-the-mouth cottage cheese and pure desi ghee sourced from trusted regional dairies.</div>
+                </div>
+                <div class="pillar-item">
+                  <div class="pillar-number">03</div>
+                  <div class="pillar-title">Slow Iron & Copper Cooking</div>
+                  <div class="pillar-desc">Kadai and handi cooking techniques that impart deep aroma and authentic rustic texture.</div>
+                </div>
+                <div class="pillar-item">
+                  <div class="pillar-number">04</div>
+                  <div class="pillar-title">Warm Hospitality</div>
+                  <div class="pillar-desc">Traditional Indian hospitality where every visitor is welcomed as an honored family guest.</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 3D Atmosphere Controller Widget -->
+            <div class="about-widget-col">
+              <div class="atmosphere-card">
+                <div class="kicker">3D SCENE LIGHTING</div>
+                <h3 class="atmosphere-title">Dining Ambience</h3>
+                <p class="atmosphere-lead">
+                  Experience how atmospheric lighting alters the character of Indian gastronomy. 
+                  Switch presets to illuminate the 3D scene in real time:
+                </p>
+
+                <div class="atmosphere-presets">
+                  <button type="button" class="preset-btn active" data-mood="golden">
+                    <div class="preset-info">
+                      <h5>Golden Amber (Default)</h5>
+                      <p>Warm royal feast lighting highlighting rich curries & brass ware</p>
+                    </div>
+                    <span class="preset-color-dot" style="color: #d4af37; background: #d4af37;"></span>
+                  </button>
+
+                  <button type="button" class="preset-btn" data-mood="saffron">
+                    <div class="preset-info">
+                      <h5>Royal Saffron</h5>
+                      <p>Vibrant festive glow evoking roasted spices & saffron threads</p>
+                    </div>
+                    <span class="preset-color-dot" style="color: #f97316; background: #f97316;"></span>
+                  </button>
+
+                  <button type="button" class="preset-btn" data-mood="candlelight">
+                    <div class="preset-info">
+                      <h5>Intimate Candlelight</h5>
+                      <p>Subtle evening embers reminiscent of traditional dining courtyards</p>
+                    </div>
+                    <span class="preset-color-dot" style="color: #ea580c; background: #ea580c;"></span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================================== -->
+      <!-- SECTION 4: Food Showcase Gallery -->
+      <!-- ================================================================== -->
+      <section id="gallery" class="gallery-section" aria-label="Food Showcase Gallery">
+        <div class="container">
+          <div class="section-header">
+            <div class="kicker">VISUAL GASTRONOMY</div>
+            <h2 class="section-title">The <span class="gold">Art of the Plate</span></h2>
+            <p class="section-lead">
+              A feast for the senses. Explore the visual richness, sizzling textures, and vibrant aromas of Shiv Restaurant’s handcrafted preparations.
+            </p>
+          </div>
+
+          <div id="gallery-grid" class="gallery-grid">
+            <!-- Rendered via JavaScript -->
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================================== -->
+      <!-- SECTION 5: Final CTA -->
+      <!-- ================================================================== -->
+      <section id="cta" class="cta-section" aria-label="Call to Action">
+        <div class="container">
+          <div class="cta-box">
+            <div class="kicker" style="justify-content: center;">THE SHIV EXPERIENCE</div>
+            <h2 class="cta-headline">GOOD FOOD. GREAT MOMENTS.</h2>
+            <p class="cta-subtext">
+              Whether gathering with family for an aromatic dinner of Kadai Paneer and crisp Parathas, 
+              or relaxing over a steaming cup of authentic cutting chai, we are honored to serve you.
+            </p>
+            <div class="cta-buttons">
+              <a href="tel:8832556011" class="btn btn-gold">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+                Call: 8832556011
+              </a>
+              <a href="mailto:ry9218977@gmail.com" class="btn btn-glass">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+                Email: ry9218977@gmail.com
+              </a>
+              <a href="https://maps.google.com/?q=Shiv+Restaurant,+Jaunpur,+Uttar+Pradesh+222136,+India" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
+                </svg>
+                Get Directions
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================================== -->
+      <!-- SECTION 6: Contact & Location Section -->
+      <!-- ================================================================== -->
+      <section id="contact" class="contact-section" aria-label="Contact and Directions">
+        <div class="container">
+          <div class="section-header">
+            <div class="kicker">CONNECT & VISIT</div>
+            <h2 class="section-title">Find <span class="gold">Shiv Restaurant</span></h2>
+            <p class="section-lead">
+              Located conveniently in Jaunpur, Uttar Pradesh 222136. Reach out by phone, email, or visit us in person.
+            </p>
+          </div>
+
+          <div class="contact-grid">
+            <!-- Left: Direct Information Cards -->
+            <div class="contact-info-col">
+              <!-- Location Card -->
+              <div class="contact-detail-card">
+                <div class="contact-icon-box">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                </div>
+                <div class="contact-content">
+                  <h4>Restaurant Location</h4>
+                  <p>Jaunpur, Uttar Pradesh 222136, India</p>
+                  <div class="contact-action-row">
+                    <a href="https://maps.google.com/?q=Shiv+Restaurant,+Jaunpur,+Uttar+Pradesh+222136,+India" target="_blank" rel="noopener noreferrer" style="font-size: 0.8rem; color: var(--gold-champagne);">
+                      Open in Google Maps →
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Phone Card -->
+              <div class="contact-detail-card">
+                <div class="contact-icon-box">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                  </svg>
+                </div>
+                <div class="contact-content">
+                  <h4>Telephone & Order Line</h4>
+                  <a href="tel:8832556011">8832556011</a>
+                  <div class="contact-action-row">
+                    <button type="button" id="copy-phone-btn" class="copy-btn">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                      </svg>
+                      Copy Number
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Email Card -->
+              <div class="contact-detail-card">
+                <div class="contact-icon-box">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                  </svg>
+                </div>
+                <div class="contact-content">
+                  <h4>Email Inquiries</h4>
+                  <a href="mailto:ry9218977@gmail.com">ry9218977@gmail.com</a>
+                  <div class="contact-action-row">
+                    <button type="button" id="copy-email-btn" class="copy-btn">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                      </svg>
+                      Copy Email
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right: Interactive Map & Inquiry Form -->
+            <div class="contact-interactive-col">
+              <!-- Map Card -->
+              <div class="map-card-wrapper">
+                <iframe 
+                  class="map-embed-frame"
+                  title="Google Maps Location for Shiv Restaurant, Jaunpur, Uttar Pradesh 222136"
+                  src="https://maps.google.com/maps?q=Jaunpur%20Uttar%20Pradesh%20222136%20India&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+                <div class="map-info-bar">
+                  <div>
+                    <strong style="color: #ffffff; font-size: 0.9rem;">Shiv Restaurant</strong>
+                    <div style="font-size: 0.8rem; color: var(--text-dim);">Jaunpur, Uttar Pradesh 222136</div>
+                  </div>
+                  <a href="https://maps.google.com/?q=Shiv+Restaurant,+Jaunpur,+Uttar+Pradesh+222136,+India" target="_blank" rel="noopener noreferrer" class="btn btn-gold btn-sm">
+                    Open Directions
+                  </a>
+                </div>
+              </div>
+
+              <!-- Quick Inquiry Form -->
+              <div class="inquiry-form-card">
+                <h4>Table Inquiry & Special Orders</h4>
+                <p>Send a message directly to our team for family gatherings or orders.</p>
+                <form id="inquiry-form" novalidate>
+                  <div class="form-grid two-col" style="margin-bottom: 14px;">
+                    <div class="form-group">
+                      <label for="inq-name" class="form-label">Your Name</label>
+                      <input type="text" id="inq-name" class="form-input" placeholder="e.g. Rahul Sharma" required />
+                    </div>
+                    <div class="form-group">
+                      <label for="inq-phone" class="form-label">Phone Number</label>
+                      <input type="tel" id="inq-phone" class="form-input" placeholder="e.g. 9876543210" required />
+                    </div>
+                  </div>
+                  <div class="form-group" style="margin-bottom: 14px;">
+                    <label for="inq-guests" class="form-label">Party Size / Inquiry Type</label>
+                    <select id="inq-guests" class="form-input" style="cursor: pointer;">
+                      <option value="Family Dining (2-4 Guests)">Family Dining (2–4 Guests)</option>
+                      <option value="Large Gathering (5-10 Guests)">Large Gathering (5–10 Guests)</option>
+                      <option value="Takeaway / Pre-order">Takeaway / Special Order</option>
+                      <option value="General Inquiry">General Inquiry</option>
+                    </select>
+                  </div>
+                  <div class="form-group" style="margin-bottom: 20px;">
+                    <label for="inq-notes" class="form-label">Notes or Preferences</label>
+                    <textarea id="inq-notes" class="form-textarea" placeholder="Let us know your favorite dishes or timing..."></textarea>
+                  </div>
+                  <button type="submit" class="btn btn-gold" style="width: 100%;">
+                    Send Inquiry to Shiv Restaurant
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================================== -->
+      <!-- Site Footer -->
+      <!-- ================================================================== -->
+      <footer class="site-footer" role="contentinfo">
+        <div class="container">
+          <div class="footer-top">
+            <div class="footer-brand">
+              <h3>SHIV RESTAURANT</h3>
+              <p>Authentic Flavours. Memorable Moments. · Jaunpur, UP 222136</p>
+            </div>
+            <nav class="footer-nav" aria-label="Footer navigation">
+              <a href="#hero">Home</a>
+              <a href="#menu">Menu</a>
+              <a href="#about">Experience</a>
+              <a href="#gallery">Gallery</a>
+              <a href="#contact">Contact</a>
+            </nav>
+          </div>
+          <div class="footer-bottom">
+            <div>
+              &copy; 2026 Shiv Restaurant. All rights reserved. Jaunpur, Uttar Pradesh 222136, India.
+            </div>
+            <button id="back-to-top-btn" class="back-to-top">
+              Back to Top ↑
+            </button>
+          </div>
+        </div>
+      </footer>
+
+      <!-- Mobile Sticky Quick Action Bar (Strict <15% of viewport height) -->
+      <nav class="mobile-sticky-bar" aria-label="Quick mobile contact actions">
+        <a href="tel:8832556011" class="mobile-bar-action highlight">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+          </svg>
+          Call
+        </a>
+        <a href="mailto:ry9218977@gmail.com" class="mobile-bar-action">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+            <polyline points="22,6 12,13 2,6"></polyline>
+          </svg>
+          Email
+        </a>
+        <a href="https://maps.google.com/?q=Shiv+Restaurant,+Jaunpur,+Uttar+Pradesh+222136,+India" target="_blank" rel="noopener noreferrer" class="mobile-bar-action">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
+          </svg>
+          Map
+        </a>
+        <a href="#menu" class="mobile-bar-action">
+          Menu
+        </a>
+      </nav>
+
+    </div>
+
+    <!-- Lightbox Modal for High-Resolution Food Inspection -->
+    <div id="lightbox-modal" class="lightbox-modal" role="dialog" aria-modal="true" aria-label="Image preview">
+      <div class="lightbox-container">
+        <button id="lightbox-close" class="lightbox-close" aria-label="Close image preview">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+        <img id="lightbox-img" class="lightbox-image" src="" alt="Culinary Showcase" />
+        <div class="lightbox-caption">
+          <div>
+            <h4 id="lightbox-title" style="color: #ffffff; font-family: var(--font-display); font-size: 1.25rem;"></h4>
+            <span id="lightbox-category" style="color: var(--gold-champagne); font-size: 0.8rem; text-transform: uppercase;"></span>
+          </div>
+          <span style="font-size: 0.8rem; color: var(--text-dim);">Shiv Restaurant · Jaunpur, UP</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Core App Module -->
+    <script type="module" src="./src/js/app.js"></script>
+  </body>
+</html>

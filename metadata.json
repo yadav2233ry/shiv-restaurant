@@ -1,0 +1,7 @@
+{
+  "name": "Shiv Restaurant — Luxury Dining Experience",
+  "description": "Premium Awwwards-style 3D culinary showcase for Shiv Restaurant in Jaunpur, Uttar Pradesh. Authentic Indian flavours, interactive 3D WebGL experience, and signature menu.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+
