@@ -23,7 +23,7 @@ export const MENU_ITEMS = [
     category: 'Main Course',
     description: 'Melange of tender seasonal vegetables slow-cooked in a silky, aromatic onion-tomato spiced gravy with subtle fragrant herbs.',
     longDescription: 'Fresh local farm vegetables simmered gently so each retains its distinct texture and vibrant taste. Infused with ginger juliennes, green cardamom, and freshly crushed garam masala for a wholesome, comforting meal.',
-    image: new URL('../assets/images/dish_mix_veg_1791443902039.jpg', import.meta.url).href,
+   image: new URL('../assets/images/dish_mix_veg_1791443902039.jpg', import.meta.url).href,
     spiceLevel: 'Mild to Medium',
     ingredients: ['Garden Peas', 'Carrots', 'Cauliflower Florets', 'French Beans', 'Paneer Cubes', 'Onion-Tomato Gravy'],
     preparationNote: 'Slow-simmered in copper handi for deep flavour infusion.',
