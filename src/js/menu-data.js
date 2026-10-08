@@ -10,7 +10,7 @@ export const MENU_ITEMS = [
     category: 'Main Course',
     description: 'Fresh cottage cheese cubes tossed with crisp bell peppers, onions, and freshly ground kadai masala in a rich roasted tomato reduction.',
     longDescription: 'A classic North Indian royal preparation where handmade paneer is gently seared and folded into a thick, spiced gravy. Hand-pounded coriander seeds, dry red chilies, and fenugreek leaves yield an intoxicating rustic aroma.',
-    image: '/src/assets/images/dish_kadai_paneer_1791443877999.jpg',
+    image: new URL('../assets/images/dish_kadai_paneer_1791443877999.jpg', import.meta.url).href,new URL('../assets/images/dish_kadai_paneer_1791443877999.jpg', import.meta.url).hrefimage: new URL('../assets/images/dish_kadai_paneer_1791443877999.jpg', import.meta.url).href,image: new URL('../assets/images/dish_mix_veg_1791443900000.jpg', import.meta.url).href,
     spiceLevel: 'Medium-Spiced',
     ingredients: ['Fresh Malai Paneer', 'Crisp Bell Peppers', 'Roasted Tomatoes', 'Hand-ground Kadai Masala', 'Fresh Ginger', 'Kasuri Methi'],
     preparationNote: 'Cooked in high-heat iron kadai to seal smoky aromatics.',
